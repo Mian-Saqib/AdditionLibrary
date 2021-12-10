@@ -2,4 +2,5 @@
     <string name="enter_first_number">Enter First Number</string>
     <string name="add">Add</string>
     <string name="finish_activity">Finish Activity</string>
+    <string name="enter_second_number">Enter Second Number</string>
 </resources>
