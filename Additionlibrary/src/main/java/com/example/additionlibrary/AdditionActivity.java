@@ -64,8 +64,8 @@ public class AdditionActivity extends AppCompatActivity {
                 }
                 else if (!fetdigitsOnly && !secdigitsOnly)
                 {
-                    first_num_et.setError("Please Enter Number Values Only");
-                    second_num_et.setError("Please Enter Number Value Only");
+                    first_num_et.setError("Please Enter Numbers Only");
+                    second_num_et.setError("Please Enter Numbers Only");
                 }
 
                 else
