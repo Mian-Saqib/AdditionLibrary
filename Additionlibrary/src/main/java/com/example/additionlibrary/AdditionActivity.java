@@ -57,11 +57,19 @@ public class AdditionActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Double first_num = Double.valueOf(first_num_et.getText().toString());
-                    Double second_num = Double.valueOf(second_num_et.getText().toString());
+                    try {
 
-                    Result = first_num + second_num;
-                    Toast.makeText(AdditionActivity.this, "Values Added", Toast.LENGTH_SHORT).show();
+                        Double first_num = Double.valueOf(first_num_et.getText().toString());
+                        Double second_num = Double.valueOf(second_num_et.getText().toString());
+
+                        Result = first_num + second_num;
+                        Toast.makeText(AdditionActivity.this, "Values Added", Toast.LENGTH_SHORT).show();
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+
 
                 }
 
