@@ -3,9 +3,11 @@ package com.example.additionlibrary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AdditionActivity extends AppCompatActivity {
 
@@ -40,6 +42,9 @@ public class AdditionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                boolean fetdigitsOnly = TextUtils.isDigitsOnly(first_num_et.getText());
+                boolean secdigitsOnly = TextUtils.isDigitsOnly(second_num_et.getText());
+
                 Double first_num = Double.valueOf(first_num_et.getText().toString());
                 Double second_num = Double.valueOf(second_num_et.getText().toString());
 
@@ -57,11 +62,17 @@ public class AdditionActivity extends AppCompatActivity {
                     first_num_et.setError("Please Enter Some Value");
                     second_num_et.setError("Please Enter Some Value");
                 }
+                else if (!fetdigitsOnly && !secdigitsOnly)
+                {
+                    first_num_et.setError("Please Enter Number Values Only");
+                    second_num_et.setError("Please Enter Number Value Only");
+                }
 
                 else
                 {
 
                     Result = first_num + second_num;
+                    Toast.makeText(AdditionActivity.this, "Values Added", Toast.LENGTH_SHORT).show();
 
                 }
 

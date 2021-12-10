@@ -21,7 +21,7 @@ public class AdditionLibrary {
 
     public static void resultMessage(Context c, Double result){
 
-        Toast.makeText(c,String.valueOf(result), Toast.LENGTH_SHORT).show();
+        Toast.makeText(c,"Result = "+String.valueOf(result), Toast.LENGTH_SHORT).show();
 
     }
 
