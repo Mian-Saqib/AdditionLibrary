@@ -42,10 +42,6 @@ public class AdditionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Double first_num = Double.valueOf(first_num_et.getText().toString());
-                Double second_num = Double.valueOf(second_num_et.getText().toString());
-
-
                 if (first_num_et.getText().toString().isEmpty() || first_num_et.getText().toString().length()==0)
                 {
                     first_num_et.setError("Please Enter Some Value");
@@ -61,6 +57,9 @@ public class AdditionActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    Double first_num = Double.valueOf(first_num_et.getText().toString());
+                    Double second_num = Double.valueOf(second_num_et.getText().toString());
+
                     Result = first_num + second_num;
                     Toast.makeText(AdditionActivity.this, "Values Added", Toast.LENGTH_SHORT).show();
 
