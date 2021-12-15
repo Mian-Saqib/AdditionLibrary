@@ -48,35 +48,65 @@ public class AdditionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (first_num_et.getText().toString().isEmpty() || first_num_et.getText().toString().length()==0)
+                if (oprator == null)
                 {
-                    first_num_et.setError("Please Enter Some Value");
-                }
-                else if (second_num_et.getText().toString().isEmpty() || second_num_et.getText().toString().length()==0)
-                {
-                    second_num_et.setError("Please Enter Some Value");
-                }
-                else if (first_num_et.getText().toString().isEmpty() && second_num_et.getText().toString().isEmpty())
-                {
-                    first_num_et.setError("Please Enter Some Value");
-                    second_num_et.setError("Please Enter Some Value");
+                    Toast.makeText(AdditionActivity.this, "Please Select Operator", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    try {
-
-                        Double first_num = Double.valueOf(first_num_et.getText().toString());
-                        Double second_num = Double.valueOf(second_num_et.getText().toString());
-
-                        Result = Double.valueOf(first_num + oprator + second_num);
-                        Toast.makeText(AdditionActivity.this, "Values Added", Toast.LENGTH_SHORT).show();
-                    }
-                    catch (Exception e)
+                    if (first_num_et.getText().toString().isEmpty() || first_num_et.getText().toString().length()==0)
                     {
+                        first_num_et.setError("Please Enter Some Value");
+                    }
+                    else if (second_num_et.getText().toString().isEmpty() || second_num_et.getText().toString().length()==0)
+                    {
+                        second_num_et.setError("Please Enter Some Value");
+                    }
+                    else if (first_num_et.getText().toString().isEmpty() && second_num_et.getText().toString().isEmpty())
+                    {
+                        first_num_et.setError("Please Enter Some Value");
+                        second_num_et.setError("Please Enter Some Value");
+                    }
+                    else
+                    {
+                        try {
+
+                            Double first_num = Double.valueOf(first_num_et.getText().toString());
+                            Double second_num = Double.valueOf(second_num_et.getText().toString());
+
+                            switch (oprator)
+                            {
+                                case "+":
+
+                                    Result = first_num + second_num;
+                                    break;
+
+                                case "-":
+
+                                    Result = first_num - second_num;
+                                    break;
+
+                                case "*":
+
+                                    Result = first_num * second_num;
+                                    break;
+
+                                case "/":
+
+                                    Result = first_num / second_num;
+                                    break;
+
+                            }
+
+                            Toast.makeText(AdditionActivity.this, "Values Added", Toast.LENGTH_SHORT).show();
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
+
 
                     }
-
-
                 }
 
             }
