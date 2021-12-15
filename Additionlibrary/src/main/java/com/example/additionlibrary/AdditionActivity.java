@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AdditionActivity extends AppCompatActivity {
@@ -17,12 +20,15 @@ public class AdditionActivity extends AppCompatActivity {
 
     Double Result;
 
+    String oprator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition);
 
         BindViews();
+        SpinnerFunctionalityFun();
         AdditionButtonFun();
         FinishBtnFun();
 
@@ -62,7 +68,7 @@ public class AdditionActivity extends AppCompatActivity {
                         Double first_num = Double.valueOf(first_num_et.getText().toString());
                         Double second_num = Double.valueOf(second_num_et.getText().toString());
 
-                        Result = first_num + second_num;
+                        Result = Double.valueOf(first_num + oprator + second_num);
                         Toast.makeText(AdditionActivity.this, "Values Added", Toast.LENGTH_SHORT).show();
                     }
                     catch (Exception e)
@@ -90,6 +96,31 @@ public class AdditionActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    private void SpinnerFunctionalityFun()
+    {
+        Spinner spinner = findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.operators, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                oprator = adapterView.getItemAtPosition(i).toString();
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
 }

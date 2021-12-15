@@ -33,6 +33,24 @@
         android:layout_marginVertical="5dp"
         android:hint="@string/enter_first_number"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:entries="@array/operators"/>
+
+
+    </LinearLayout>
+
+
+
     <EditText
         android:id="@+id/second_num_et"
         android:layout_width="match_parent"
